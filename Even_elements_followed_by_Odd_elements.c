@@ -3,35 +3,25 @@ int main()
 {
     int n;
     scanf("%d",&n);
-    int arr[n],arr2[n],c=0,x=0;
+    int arr[n],temp;
     for(int i=0;i<n;i++)
     {
         scanf("%d",&arr[i]);
-        if(arr[i]%2==0)
-        {
-            c++;
-        }
     }
     for(int i=0;i<n;i++)
     {
-        for(int j=i;j<n;j++)
+        for(int j=0;j<n-1;j++)
         {
-            if(arr[j]%2==0)
+            if(arr[j]%2!=0 && arr[j+1]%2==0)
             {
-                arr2[x]=arr[i];
-                x++;
-                break;
-            }
-            else
-            {
-                arr2[c]=arr[i];
-                c++;
-                break;
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
             }
         }
     }
     for(int i=0;i<n;i++)
     {
-        printf("%d ",arr2[i]);
+        printf("%d ",arr[i]);
     }
 }
