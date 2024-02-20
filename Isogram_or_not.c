@@ -1,27 +1,34 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
-    char s[200];
+    char str[100];
     scanf("%[^
-]s",s);
+]s",str);
+    int flag=0;
     for(int j=97;j<=122;j++)
     {
         int c=0;
-        for(int i=0;s[i]!=NULL;i++)
+        for(int i=0;str[i]!=NULL;i++)
         {
-            if(s[i]>=65 && s[i]<=90)
+            if(str[i]>=65 && str[i]<=91)
             {
-                s[i]+=32;
+                str[i]+=32;
             }
-            if(s[i]==j)
+            if(j==str[i])
             {
                 c++;
             }
+            if(c>1)
+            {
+                flag=1;
+                break;
+            }
         }
-        if(c>1)
+        if(flag==1)
         {
             printf("False");
-            return 1;
+            return 0;
         }
     }
     printf("True");
